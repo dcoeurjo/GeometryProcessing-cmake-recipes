@@ -30,7 +30,7 @@ Libs | version | credits
 -----|-------- | -----
 [DGtal](https://dgtal.org) | 1.4.2 | 
 [Ponca](https://poncateam.github.io/ponca) | 1.7 | 
-[polyscope](polyscope.run) | 2.3.0 | 
+[polyscope](https://polyscope.run) | 2.3.0 | 
 [geometry-central](https://geometry-central.net) | 70c859ec3b58fe597c0063673a74082654e9c5aa |
 [Directional](https://avaxman.github.io/Directional/)| ed62c362b59ebd84cdfac520abc37df1bab77290 | 
 [cinolib](https://github.com/mlivesu/cinolib) (without gui)|8174c95b590d083b3699e4af95901c51344266ec | 
