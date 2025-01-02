@@ -28,15 +28,16 @@ For system-wide downloads, consider using the `CPM_SOURCE_CACHE` environnement v
 # Geometry processing packages
 Libs | version | credits
 -----|-------- | -----
+[DGtal](https://dgtal.org) | 1.4.2 | 
+[Ponca](https://poncateam.github.io/ponca) | 1.7 | 
+[polyscope](polyscope.run) | 2.3.0 | 
+[geometry-central](https://geometry-central.net) | 70c859ec3b58fe597c0063673a74082654e9c5aa |
+[Directional](https://avaxman.github.io/Directional/)| ed62c362b59ebd84cdfac520abc37df1bab77290 | 
+[cinolib](https://github.com/mlivesu/cinolib) (without gui)|8174c95b590d083b3699e4af95901c51344266ec | 
 [eigen](https://eigen.tuxfamily.org) |3.4.0 | [Lagrange](https://opensource.adobe.com/lagrange-docs/)
 [libigl](https://libigl.github.io) | 2.5.0 | [Lagrange](https://opensource.adobe.com/lagrange-docs/)
 [CGAL](https://cgal.org) | 6.0 | 
-[DGtal](https://dgtal.org) | 1.4.2 | 
-[polyscope](polyscope.run) | 2.3.0 | 
-[geometry-central](https://geometry-central.net) | 70c859ec3b58fe597c0063673a74082654e9c5aa |
 [stb](https://github.com/nothings/stb) | 5736b15f7ea0ffb08dd38af21067c314d6a3aae9 | [Lagrange](https://opensource.adobe.com/lagrange-docs/)
-[Directional](https://avaxman.github.io/Directional/)| ed62c362b59ebd84cdfac520abc37df1bab77290 | 
-[cinolib](https://github.com/mlivesu/cinolib) (without gui)|8174c95b590d083b3699e4af95901c51344266ec | 
 [geogram](https://github.com/BrunoLevy/geogram) WIP| 1.9.0 | 
 
 # Tools
