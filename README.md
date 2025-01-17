@@ -17,7 +17,7 @@ include(polyscope)
 include(geometry-central)
 
 add_executable(main main.cpp)
-target_link_libraries(main polyscope DGtal ${DGTAL_LIBRARIES} geometry-central igl::core)
+target_link_libraries(main polyscope DGtal ${DGTAL_LIBRARIES} geometry-central igl::core  CGAL::CGAL)
 ```
 For system-wide downloads, consider using the `CPM_SOURCE_CACHE` environnement variable (cf [CPM doc](https://github.com/cpm-cmake/CPM.cmake?tab=readme-ov-file#CPM_SOURCE_CACHE))
 
