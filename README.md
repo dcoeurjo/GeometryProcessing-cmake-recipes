@@ -15,6 +15,7 @@ include(dgtal)
 include(libigl)
 include(polyscope)
 include(geometry-central)
+include(cgal)
 
 add_executable(main main.cpp)
 target_link_libraries(main polyscope DGtal ${DGTAL_LIBRARIES} geometry-central igl::core  CGAL::CGAL)
