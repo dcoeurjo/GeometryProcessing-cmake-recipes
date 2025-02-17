@@ -50,3 +50,4 @@ Libs | version| credits
 [openmp](openmp.org)| n.a.| [DGtal](https://dgtal.org) 
 [spdlog](https://github.com/gabime/spdlog) | 1.14.1 |[Lagrange](https://opensource.adobe.com/lagrange-docs/)
 [boost](https://boost.org) | 1.8.2 |[Lagrange](https://opensource.adobe.com/lagrange-docs/)
+[robin_map](https://github.com/Tessil/robin-map) | 1.3.0|

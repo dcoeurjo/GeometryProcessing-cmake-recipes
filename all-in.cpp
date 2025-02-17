@@ -20,6 +20,8 @@
 
 #include <Spectra/SymEigsSolver.h>
 
+#include <tsl/robin_map.h>
+
 int main(int argc, char** argv)
 {
   
@@ -121,6 +123,15 @@ int main(int argc, char** argv)
     std::cout << "Eigenvalues found:\n"
               << evalues << std::endl;
               
+  }
+
+  {
+    tsl::robin_map<int, int> map = {{1, 1}, {2, 1}, {3, 1}};
+    for (auto it = map.begin(); it != map.end(); ++it)
+    {
+      // it->second = 2; // Illegal
+      it.value() = 2; // Ok
+    }
   }
 
   return 0;
