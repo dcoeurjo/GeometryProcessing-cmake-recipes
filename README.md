@@ -23,8 +23,9 @@ target_link_libraries(main polyscope DGtal ${DGTAL_LIBRARIES} geometry-central i
 For system-wide downloads, consider using the `CPM_SOURCE_CACHE` environnement variable (cf [CPM doc](https://github.com/cpm-cmake/CPM.cmake?tab=readme-ov-file#CPM_SOURCE_CACHE))
 
 
-**Note**: Some recipe combinations could be suboptimal, as a given subproject may be fetched and built several times. Some projects may have dependencies that may not be automatically downloaded by cmake (eg. DGtal needs boost). Please check the instructions.
-
+**Note**: 
+- Some recipe combinations could be suboptimal, as a given subproject may be fetched and built several times. Some projects may have dependencies that may not be automatically downloaded by cmake (eg. DGtal needs boost). Please check the instructions provided by the authors.
+- For some recipes, the minimal c++ standard is c++17.
 
 # Geometry processing packages
 Libs | version | credits
