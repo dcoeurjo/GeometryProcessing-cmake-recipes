@@ -23,8 +23,8 @@ include(ponca)
 include(directional)
 include(boost)
 include(cinolib)
+include(spectra)
 #include(geogram) [WIP] c++ std lib version issue (not compatible with c++17)
 
 add_executable(all-in all-in.cpp)
-target_link_libraries(all-in PRIVATE  cinolib spdlog::spdlog polyscope stb::image Boost::headers CGAL::CGAL CLI11::CLI11 Eigen3::Eigen igl::core geometry-central Catch2::Catch2 directional OpenMP::OpenMP_CXX Ponca::Fitting DGtal ${DGtal_LIBRARIES})
-
+target_link_libraries(all-in PRIVATE  cinolib spdlog::spdlog polyscope stb::image Boost::headers CGAL::CGAL CLI11::CLI11 Eigen3::Eigen igl::core geometry-central Catch2::Catch2 directional OpenMP::OpenMP_CXX Ponca::Fitting Spectra DGtal ${DGtal_LIBRARIES})
