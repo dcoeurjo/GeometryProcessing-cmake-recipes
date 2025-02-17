@@ -11,4 +11,5 @@ CPMAddPackage(
     NAME Spectra
     VERSION 1.1.0
     GITHUB_REPOSITORY yixuan/spectra
+    PATCHES "spectra.patch"
 )

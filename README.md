@@ -38,6 +38,7 @@ Libs | version | credits
 [eigen](https://eigen.tuxfamily.org) |3.4.0 | [Lagrange](https://opensource.adobe.com/lagrange-docs/)
 [libigl](https://libigl.github.io) | 2.5.0 | [Lagrange](https://opensource.adobe.com/lagrange-docs/)
 [CGAL](https://cgal.org) | 6.0 | 
+[Spectra](https://spectralib.org) | 1.1.0 | 
 [stb](https://github.com/nothings/stb) | 5736b15f7ea0ffb08dd38af21067c314d6a3aae9 | [Lagrange](https://opensource.adobe.com/lagrange-docs/)
 [geogram](https://github.com/BrunoLevy/geogram) WIP| 1.9.0 | 
 

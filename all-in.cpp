@@ -104,18 +104,18 @@ int main(int argc, char** argv)
     Eigen::MatrixXd M = A + A.transpose();
 
     // Construct matrix operation object using the wrapper class DenseSymMatProd
-    DenseSymMatProd<double> op(M);
+    Spectra::DenseSymMatProd<double> op(M);
 
     // Construct eigen solver object, requesting the largest three eigenvalues
-    SymEigsSolver<DenseSymMatProd<double>> eigs(op, 3, 6);
+    Spectra::SymEigsSolver<Spectra::DenseSymMatProd<double>> eigs(op, 3, 6);
 
     // Initialize and compute
     eigs.init();
-    int nconv = eigs.compute(SortRule::LargestAlge);
+    int nconv = eigs.compute(Spectra::SortRule::LargestAlge);
 
     // Retrieve results
     Eigen::VectorXd evalues;
-    if (eigs.info() == CompInfo::Successful)
+    if (eigs.info() == Spectra::CompInfo::Successful)
       evalues = eigs.eigenvalues();
 
     std::cout << "Eigenvalues found:\n"
