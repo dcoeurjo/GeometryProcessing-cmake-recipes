@@ -20,6 +20,9 @@
 
 #include <Spectra/SymEigsSolver.h>
 
+#include <geogram/delaunay/delaunay_2d.h>
+#include <geogram/numerics/predicates.h>
+
 #include <tsl/robin_map.h>
 
 int main(int argc, char** argv)
@@ -132,6 +135,30 @@ int main(int argc, char** argv)
       // it->second = 2; // Illegal
       it.value() = 2; // Ok
     }
+  }
+  
+  { //Geogram
+    
+    typedef GEO::vector<GEO::vec2> Polygon;
+    Polygon tri;
+    tri.push_back(GEO::vec2(0.0,0.0));
+    tri.push_back(GEO::vec2(1.0,0.0));
+    tri.push_back(GEO::vec2(0.0,1.0));
+      
+    auto signed_area = [](const Polygon& P) {
+      double result = 0 ;
+      for(unsigned int i=0; i<P.size(); i++) {
+        unsigned int j = (i+1) % P.size() ;
+        const GEO::vec2& t1 = P[i] ;
+        const GEO::vec2& t2 = P[j] ;
+        result += t1.x * t2.y - t2.x * t1.y ;
+      }
+      result /= 2.0 ;
+      return result ;
+    };
+    
+    std::cout << "Signed area = " << signed_area(tri)<<std::endl;
+    
   }
 
   return 0;
