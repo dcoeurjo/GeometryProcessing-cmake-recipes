@@ -43,7 +43,7 @@ Libs | version | credits
 [stb](https://github.com/nothings/stb) | 5736b15f7ea0ffb08dd38af21067c314d6a3aae9 | [Lagrange](https://opensource.adobe.com/lagrange-docs/)
 [geogram](https://github.com/BrunoLevy/geogram) WIP| 1.9.0 | 
 
-# Tools
+# Misc.
 Libs | version| credits
 -----|--------|  --- 
 [cli11](https://cliutils.github.io/CLI11/book/)| v2.3.2 | [Lagrange](https://opensource.adobe.com/lagrange-docs/)
