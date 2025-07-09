@@ -11,7 +11,7 @@ SET(DGTAL_REMOVE_UNINSTALL ON)
 CPMAddPackage(
   NAME DGtal
   GITHUB_REPOSITORY "DGtal-team/DGtal"
-  GIT_TAG 1.4.2.1
+  GIT_TAG 2.0
 )
 
 include("${DGtal_BINARY_DIR}/DGtalConfig.cmake")
