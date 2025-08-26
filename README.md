@@ -31,7 +31,7 @@ For system-wide downloads, consider using the `CPM_SOURCE_CACHE` environnement v
 # Geometry processing packages
 Libs | version | credits
 -----|-------- | -----
-[DGtal](https://dgtal.org) | 1.4.2 | 
+[DGtal](https://dgtal.org) | 8978c75a29cb4d4a8c44252c0ebde4a3def53f9f (post 2.0.0) | 
 [Ponca](https://poncateam.github.io/ponca) | 1.7 | 
 [polyscope](https://polyscope.run) | 2.3.0 | 
 [geogram](https://github.com/BrunoLevy/geogram) | 1.9.3 | 
