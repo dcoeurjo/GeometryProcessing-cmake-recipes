@@ -1,0 +1,29 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 810972c..f9c17a0 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -99,15 +99,15 @@ install(
+     DESTINATION ${CMAKE_INSTALL_DATADIR}/cmake/Spectra
+ )
+ 
+-find_package(CLANG_FORMAT 9)
+-if(CLANG_FORMAT_FOUND)
+-    file(GLOB_RECURSE FORMAT_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp ${CMAKE_CURRENT_SOURCE_DIR}/*.h)
+-    add_custom_target(
+-        format
+-        COMMAND ${CLANG_FORMAT_EXECUTABLE} -i -style=file ${FORMAT_SOURCES}
+-        DEPENDS ${FORMAT_SOURCES}
+-    )
+-endif()
++#find_package(CLANG_FORMAT 9)
++#if(CLANG_FORMAT_FOUND)
++#    file(GLOB_RECURSE FORMAT_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp ${CMAKE_CURRENT_SOURCE_DIR}/*.h)
++#    add_custom_target(
++#        format
++#        COMMAND ${CLANG_FORMAT_EXECUTABLE} -i -style=file ${FORMAT_SOURCES}
++#        DEPENDS ${FORMAT_SOURCES}
++#    )
++#endif()
+ 
+ 
+ 

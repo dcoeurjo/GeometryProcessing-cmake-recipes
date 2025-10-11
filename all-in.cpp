@@ -18,6 +18,19 @@
 
 #include <Ponca/Fitting>
 
+#include <Spectra/SymEigsSolver.h>
+
+#include <geogram/delaunay/delaunay_2d.h>
+#include <geogram/numerics/predicates.h>
+
+#include <tsl/robin_map.h>
+
+#include <boost/geometry.hpp>
+#include <boost/geometry/geometries/point.hpp>
+#include <boost/geometry/geometries/box.hpp>
+#include <boost/geometry/index/rtree.hpp>
+#include <vector>
+#include <boost/foreach.hpp>
 
 int main(int argc, char** argv)
 {
@@ -96,5 +109,102 @@ int main(int argc, char** argv)
     << "Is projected at   " << fit.project(p).transpose() << std::endl;
   }
   
+
+  { //Specra
+    // We are going to calculate the eigenvalues of M
+    Eigen::MatrixXd A = Eigen::MatrixXd::Random(10, 10);
+    Eigen::MatrixXd M = A + A.transpose();
+
+    // Construct matrix operation object using the wrapper class DenseSymMatProd
+    Spectra::DenseSymMatProd<double> op(M);
+
+    // Construct eigen solver object, requesting the largest three eigenvalues
+    Spectra::SymEigsSolver<Spectra::DenseSymMatProd<double>> eigs(op, 3, 6);
+
+    // Initialize and compute
+    eigs.init();
+    int nconv = eigs.compute(Spectra::SortRule::LargestAlge);
+
+    // Retrieve results
+    Eigen::VectorXd evalues;
+    if (eigs.info() == Spectra::CompInfo::Successful)
+      evalues = eigs.eigenvalues();
+
+    std::cout << "Eigenvalues found:\n"
+              << evalues << std::endl;
+              
+  }
+
+  { //tsl::robin_map
+    tsl::robin_map<int, int> map = {{1, 1}, {2, 1}, {3, 1}};
+    for (auto it = map.begin(); it != map.end(); ++it)
+    {
+      // it->second = 2; // Illegal
+      it.value() = 2; // Ok
+    }
+  }
+  
+  { //Geogram
+    
+    typedef GEO::vector<GEO::vec2> Polygon;
+    Polygon tri;
+    tri.push_back(GEO::vec2(0.0,0.0));
+    tri.push_back(GEO::vec2(1.0,0.0));
+    tri.push_back(GEO::vec2(0.0,1.0));
+      
+    auto signed_area = [](const Polygon& P) {
+      double result = 0 ;
+      for(unsigned int i=0; i<P.size(); i++) {
+        unsigned int j = (i+1) % P.size() ;
+        const GEO::vec2& t1 = P[i] ;
+        const GEO::vec2& t2 = P[j] ;
+        result += t1.x * t2.y - t2.x * t1.y ;
+      }
+      result /= 2.0 ;
+      return result ;
+    };
+    
+    std::cout << "Signed area = " << signed_area(tri)<<std::endl;
+    
+  }
+
+
+  {//boost
+    namespace bg = boost::geometry;
+    namespace bgi = boost::geometry::index;
+    typedef bg::model::point<float, 2, bg::cs::cartesian> point;
+    typedef bg::model::box<point> box;
+    typedef std::pair<box, unsigned> value;
+    // create the rtree using default constructor
+    bgi::rtree<value, bgi::quadratic<16>> rtree;
+    // create some values
+    for (unsigned i = 0; i < 10; ++i)
+    {
+      // create a box
+      box b(point(i + 0.0f, i + 0.0f), point(i + 0.5f, i + 0.5f));
+      // insert new value
+      rtree.insert(std::make_pair(b, i));
+    }
+    // find values intersecting some area defined by a box
+    box query_box(point(0, 0), point(5, 5));
+    std::vector<value> result_s;
+    rtree.query(bgi::intersects(query_box), std::back_inserter(result_s));
+    // find 5 nearest values to a point
+    std::vector<value> result_n;
+    rtree.query(bgi::nearest(point(0, 0), 5), std::back_inserter(result_n));
+    // display results
+    std::cout << "spatial query box:" << std::endl;
+    std::cout << bg::wkt<box>(query_box) << std::endl;
+    std::cout << "spatial query result:" << std::endl;
+    BOOST_FOREACH (value const &v, result_s)
+      std::cout << bg::wkt<box>(v.first) << " - " << v.second << std::endl;
+
+    std::cout << "knn query point:" << std::endl;
+    std::cout << bg::wkt<point>(point(0, 0)) << std::endl;
+    std::cout << "knn query result:" << std::endl;
+    BOOST_FOREACH (value const &v, result_n)
+      std::cout << bg::wkt<box>(v.first) << " - " << v.second << std::endl;
+  }
+
   return 0;
 }

@@ -1,5 +1,8 @@
 # Changelog
 
+- Adding geogram 1.9.3 (18-02-2025)
+- Adding robin_map (17-02-2025)
+- Adding Spectra (17-02-2025)
 - Adding ponca (02-01-2025)
 - Fixing DGtal version (23-12-2024)
 - Adding cinolib (25-11-2024)
