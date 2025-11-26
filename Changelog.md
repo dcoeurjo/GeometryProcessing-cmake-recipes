@@ -1,5 +1,6 @@
 # Changelog
 
+- Fixing DGtal (pre2.1)
 - Adding geogram 1.9.3 (18-02-2025)
 - Adding robin_map (17-02-2025)
 - Adding Spectra (17-02-2025)

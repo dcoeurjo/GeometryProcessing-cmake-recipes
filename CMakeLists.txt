@@ -32,4 +32,4 @@ target_link_libraries(all-in PRIVATE Boost::headers cinolib spdlog::spdlog polys
                                      CLI11::CLI11 Eigen3::Eigen igl::core geometry-central Catch2::Catch2
                                      directional OpenMP::OpenMP_CXX Ponca::Fitting Spectra tsl::robin_map
                                      geogram
-                                     DGtal ${DGtal_LIBRARIES})
+                                     DGtal::DGtal)
